@@ -396,7 +396,7 @@ background: var(--color-2);
 
 /* SECTION proyectos */
 .proyectos{
-    height: 450vh;
+    height: 400vh;
     overflow: hidden;
     background-image: linear-gradient(to top, #ffffff 0%, #000000 50%,  #000000 100%);
     
