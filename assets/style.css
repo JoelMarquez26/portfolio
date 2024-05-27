@@ -1,0 +1,958 @@
+@import url('https://fonts.googleapis.com/css2?family=Antic&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antic&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Chivo:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Doodle+Shadow&display=swap');
+
+:root {
+    /* TIPOGRAFIAS */
+    --font-Family-1: 'Azeret Mono', monospace;
+    --font-Family-2: "Chivo", sans-serif;
+    /* PALETA DE COLORES */
+    --color-1: #000000;
+    --color-2: #ffffff;
+    --color-3: #002AFF;
+    --color-4: #737373;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+   font-family: var(--font-Family-1);
+}
+#home{
+    height: 100vh;
+    background-color: var(--color-1);
+    position: relative;
+    display: flex;
+}
+
+
+/* Estilos para el menú vertical */
+.menu-vertical {
+    position: fixed;
+    top: 0%;
+    right: 0;
+    height: 100%;
+    padding: 0px;
+}
+.fixed {
+    position: absolute;
+    /* Estilos adicionales para el menú fijo */
+}
+
+#home .menu-izquierda {
+    display: none; /* Oculta el menú en la sección principal */
+}
+
+
+.menu-vertical ul {
+    list-style-type: none;
+    margin-top: 120px;
+}
+
+.menu-vertical  ul li {
+    margin-bottom: 60px;
+    margin-right: 50px;
+    
+}
+
+.menu-vertical ul li a {
+    text-decoration: none;
+    color: var(--color-4);
+    writing-mode: vertical-rl; /* Esto hace que las palabras estén dispuestas verticalmente */
+    text-orientation: mixed; /* Para mantener el texto orientado de manera legible */
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.boton-menu {
+    background: var(--color-1);
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.boton-menu:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #737373, blue, white, blue,#737373, blue, white, blue);
+    background-size: 800%;
+    border-radius: 12px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+}
+
+.boton-menu:hover{
+    color: var(--color-2);
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+#texto-mostrado {
+    display: flex;
+    justify-content: flex-start; /* Alinea el contenido al inicio (izquierda) */
+    align-items: center; /* Centra verticalmente el contenido */
+    overflow: none;
+    white-space: pre;
+    font-family: monospace;
+    font-size: 22px;
+    padding: 50px;
+    border: none;
+    background-color: transparent;
+    max-width: 75%; /* Define un ancho máximo para el contenedor */
+    color: #848383bb;
+    user-select: none;
+    animation: parpadeo 2s infinite alternate; /* Aplica la animación de parpadeo */
+   
+}
+
+span .nombre {
+    color: blue; /* Cambia el color del nombre */
+    font-size: 24px; /* Cambia el tamaño del nombre */
+}
+
+
+.texto-animated {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(80, end) forwards;
+  
+
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+
+@keyframes parpadeo {
+    0% {
+        color: #848383bb; 
+    }
+    100% {
+        text-shadow: 0 0 10px #002aff; 
+}
+}
+
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 10px; /* Ajusta la posición vertical según tu diseño */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%);
+}
+
+.scroll-down-arrow a {
+    display: block;
+    color: var(--color-2);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    transition: transform 0.5s ease; /* Transición suave */
+}
+
+.scroll-down-arrow a:hover {
+    transform: translateY(10px); /* Efecto de levantamiento al pasar el cursor */
+    color: var(--color-3);
+}
+
+.scroll-down-arrow i {  
+    font-size: 22px;
+}
+
+.welcome-text {
+    position: absolute;
+    bottom: 80px; /* Ajusta la posición vertical según tu diseño */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--color-4);
+    font-size: 18px;
+    transition: opacity 1.0s ease; /* Transición suave de opacidad */
+    font-family: var(--font-Family-2);
+}
+
+
+
+/* SECTION sobre-mi+skills */
+.sobre-mi-skills{
+    height: 100vh;
+    position: relative;
+    display: flex;
+}
+
+.menu-izquierda {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 100%;
+    padding: 0px;
+    visibility: hidden; /* Oculta el menú por defecto */
+    z-index: 1000; /* Asegúrate de que el menú se superponga a otros elementos */
+}
+
+.menu-izquierda ul {
+    list-style-type: none;
+    margin-top: 40px;
+}
+
+.menu-izquierda ul li {
+    margin-bottom: 30px;
+    margin-left: 30px;
+}
+
+.menu-izquierda ul li a {
+    text-decoration: none;
+    color: var(--color-4);
+    writing-mode: vertical-rl; /* Esto hace que las palabras estén dispuestas verticalmente */
+    text-orientation: mixed; /* Para mantener el texto orientado de manera legible */
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.5s;
+}
+
+.boton-menu2 {
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 5px;
+    position: relative;
+    border-radius: 10px;
+   
+}
+.sobre-mi-skills .boton-menu2{
+background: var(--color-2);
+}
+
+.boton-menu2:hover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--color-4), var(--color-3), var(--color-1), var(--color-3),var(--color-4), var(--color-3), var(--color-1), var(--color-3));
+    background-size: 800%;
+    border-radius: 12px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+}
+
+.boton-menu2:hover{
+    color: var(--color-1);
+}
+
+#name{
+    color: var(--color-3);
+    font-size: 16px;
+}
+
+#name:hover{
+    text-decoration:line-through;
+}
+
+.sobre-mi{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-2);
+}
+.title-sobre-mi{
+   position: absolute;
+   top: 90px;
+   right: 70%;
+   color: var(--color-3);
+   font-weight: 900;
+  
+}
+.title-sobre-mi h1{
+    font-size: 32px;
+ }
+
+.text-sobre-mi{
+    font-family: var(--font-Family-2);
+    font-size: 20px;
+    width: 64%;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+
+
+.llamada{
+    color: var(--color-1);
+    font-weight: 600;
+    font-size: 24px;
+   
+}
+
+
+
+.title-skills{
+    position: absolute;
+    bottom: 160px;
+    right: 68%;
+    color: var(--color-3);
+    font-weight: bold;  
+    
+}
+.title-skills h1{
+    font-size: 32px;
+}
+
+.logitos{
+    position: absolute;
+    display: flex;
+    bottom: 40px;
+    font-size: 70px;
+    gap: 180px;  
+
+}
+
+.logitos i{
+    animation: flotar 3s ease-in-out infinite alternate; /* Aplicar la animación de flotar */
+    transition: color 1s; /* Transición suave para el cambio de color */
+}
+
+@keyframes flotar {
+    from {
+        transform: translateY(0);       
+    }
+    to {
+        transform: translateY(-15px); /* Cambia la posición vertical */
+    }
+}
+
+/* Definir los colores originales */
+#logo-html {
+    color: #E34F26; /* HTML5 */
+}
+
+#logo-css {
+    color: #1572B6; /* CSS3 */
+}
+
+#logo-js {
+    color: #F7DF1E; /* JavaScript */
+}
+
+#logo-figma {
+    color: #F24E1E; /* Figma */
+}
+
+#logo-php {
+    color: #8892BE; /* PHP */
+}
+
+
+
+.boton-menu2.active::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #737373, blue, white, blue,#737373, blue, white, blue);
+    background-size: 800%;
+    border-radius: 12px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+}
+
+.boton-menu2.active{
+    color: var(--color-1);
+}
+
+
+
+/* SECTION proyectos */
+.proyectos{
+    height: 480vh;
+    overflow: hidden;
+    background-image: linear-gradient(to top, #ffffff 0%, #000000 50%,  #000000 100%);
+    
+}
+
+.boton-menu2.tercera-section {
+    background-color: transparent; /* Cambia el fondo a negro en la tercera sección */
+    color: var(--color-2);
+}
+.boton-menu2.active.tercera-section{
+    color: var(--color-2);
+    
+}
+
+
+.boton-menu2 {
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Transición suave para el cambio de color de fondo y opacidad */
+}
+.boton-menu2.tercera-section:hover{
+    background-color: var(--color-1);
+    color: var(--color-3);
+}
+
+.container-proyectos{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+.title-proyectos{
+   position: absolute;
+   top: 70px;
+   right: 68%;
+   color: var(--color-2);
+   font-weight: 900;
+}
+
+.title-proyectos h1{
+    text-shadow:  2px 1.5px 0px var(--color-3);
+    font-size: 32px;
+ }
+
+ .intro-proyectos {
+    position: absolute;
+    top: 200px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 64%;
+    font-size: 24px;
+    line-height: 1.8;
+    color: var(--color-2); 
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: var(--font-Family-1);
+    
+    /* animation: parpadeo2 2s infinite alternate; Aplica la animación de parpadeo */
+}
+
+.intro-proyectos span{
+    font-style: italic;
+    font-family: var(--font-Family-1);
+}
+.intro-proyectos .s1{
+    font-style:normal;    
+}
+
+.container-proyecs{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 45%;
+
+}
+
+/* .proyec{
+    position: absolute;
+    width: 500px;
+    height: 490px;
+    right: 50%;
+    top: 250px;
+    background-image: linear-gradient(to right, #000000 0%, #232323 40%, #232323 50%, #232323 60%, #000000 100%);
+    overflow: visible; /* Permite que las imágenes sobresalgan del contenedor */
+/*} */
+
+.proyec {
+    position: relative;  
+    /* border: 1px solid red; */
+    width: 600px;
+    height: 600px;
+    right: 20%;
+    /* background-image: linear-gradient(to right, #000000 0%, #232323 40%, #232323 50%, #232323 60%, #000000 100%); */
+    background-color: var(--color-1);
+    overflow: visible; /* Permite que las imágenes sobresalgan del contenedor */
+    cursor: pointer;
+    transform: rotate(2deg);
+    transition: transform 0.5s ease; /* Añade una transición suave para la transformación */
+}
+
+.proyec img {
+    position: absolute;
+    width: 460px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+    
+}
+
+.proyec img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    
+}
+
+.proyectos::before {
+    content: "PROYECTOS";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vw; /* Adjust font size as needed */
+    color: rgba(86, 76, 76, 0.852); /* Semi-transparent black */
+    z-index: -1; /* Ensure text stays in the background */
+    white-space: nowrap; /* Prevents text from wrapping */
+    user-select: none; /* Prevents text selection */
+}
+
+.proyec img:nth-child(1) {
+    top: 10px;
+    left: -180px;
+}
+
+.proyec img:nth-child(2) {
+    top: 50px;
+    left:300px;
+  
+}
+
+
+.proyec img:nth-child(3) {
+    top: 330px;
+    left: 10px;
+    width: 580px; /* Ajusta el tamaño de las imágenes según sea necesario */
+}
+
+
+/* .proyec img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen al pasar el ratón por encima */
+/* } */ 
+.proyec:hover {
+    transform: rotate(0deg) scale(1.1); /* Aumenta el tamaño y coloca el div derecho al pasar el ratón por encima */
+    background-color: var(--color-2);
+    
+}
+
+/* .separador{
+    position: absolute;
+    width: 100%;
+    height:30px;
+    background-color: var(--color-2);
+    top: 92rem;
+} */
+
+.proyec2 {
+    position: absolute;  
+    /* border: 1px solid red; */
+    width: 600px;
+    height: 600px;
+    left: 40%;
+    top: 900px;
+    cursor: pointer;
+    /* background-image: linear-gradient(to right, #000000 0%, #232323 40%, #232323 50%, #232323 60%, #000000 100%); */
+    background-color: var(--color-1);
+    overflow: visible; /* Permite que las imágenes sobresalgan del contenedor */
+    transform: rotate(2deg);
+    /* transition: transform 5.5s ease; Añade una transición suave para la transformación */
+}
+
+.proyec2 img {
+    position: absolute;
+    width: 480px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto;
+    
+}
+
+.proyec2 img:nth-child(1) {
+    top: 10px;
+    left: -150px;
+}
+
+.proyec2 img:nth-child(2) {
+    top: 50px;
+    left:280px;
+  
+}
+
+
+.proyec2 img:nth-child(3) {
+    top: 330px;
+    left: -10px;
+    width: 620px; /* Ajusta el tamaño de las imágenes según sea necesario */
+}
+
+
+/* .proyec img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen al pasar el ratón por encima */
+/* } */ 
+.proyec2:hover {
+    transform: rotate(0deg) scale(1.1); /* Aumenta el tamaño y coloca el div derecho al pasar el ratón por encima */
+    background-color: var(--color-2);
+}
+
+
+
+
+.proyec3 {
+    position: absolute;  
+    /* border: 1px solid red; */
+    width: 600px;
+    height: 600px;
+    right: 20%;
+    top: 1800px;
+    cursor: pointer;
+    /* background-image: linear-gradient(to right, #000000 0%, #232323 40%, #232323 50%, #232323 60%, #000000 100%); */
+    background-color: var(--color-1);
+    overflow: visible; /* Permite que las imágenes sobresalgan del contenedor */
+    transform: rotate(2deg);
+    transition: transform 0.5s ease; /* Añade una transición suave para la transformación */
+}
+
+.proyec3 img {
+    position: absolute;
+    width: 480px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto;
+    
+}
+
+.proyec3 img:nth-child(1) {
+    top: 10px;
+    left: -150px;
+}
+
+.proyec3 img:nth-child(2) {
+    top: 50px;
+    left:280px;
+  
+}
+
+
+.proyec3 img:nth-child(3) {
+    top: 330px;
+    left: -10px;
+    width: 620px; /* Ajusta el tamaño de las imágenes según sea necesario */
+}
+
+
+/* .proyec img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen al pasar el ratón por encima */
+/* } */ 
+.proyec3:hover {
+    transform: rotate(0deg) scale(1.1); /* Aumenta el tamaño y coloca el div derecho al pasar el ratón por encima */
+    background-color: var(--color-2);
+}
+
+
+.contacto{   
+    height: 60vh;
+}
+.container-contact{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+
+
+.title-contacto{
+    position: absolute;
+    top: 5px;
+    right: 68%;
+    color: var(--color-3);
+    font-weight: 900;
+ }
+ .title-contacto h1{
+    font-size: 32px;
+ }
+
+ .text-contact {
+    position: relative;
+    font-family: var(--font-Family-1);
+    width: 64%;
+    text-align: center;
+    margin-top: 80px;
+    
+    /* animation: parpadeo2 2s infinite alternate; Aplica la animación de parpadeo */
+}
+
+.text-contact h1{
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.text-contact p{
+    font-size: 20px;
+}
+.my-email{
+    position: absolute;
+    top: 0px;
+    width: 500px;
+    height: 500px;
+}
+.copiar{
+    position: absolute;
+    top: 340px;
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    transition: opacity 0.5s;
+}
+
+
+.copiar.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fa-circle-check {
+    display: none;
+    position: absolute;
+    top: 340px;
+    color: var(--color-3);
+    font-size: 1.5em;
+    transition: opacity 5.5s;
+}
+
+.fa-circle-check.visible {
+    display: inline-block;
+    opacity: 1;
+}
+
+footer{
+    height: 20vh;
+    background-color: var(--color-1);
+    padding: 55px 0;
+    text-align: center;
+}
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+.copyright,
+.me {
+    flex: 1;
+    text-align: left;
+}
+
+.redes {
+    flex: 2;
+}
+
+.redes i {
+    cursor: pointer;
+    margin: 0 20px;
+    font-size: 34px;
+    color: var(--color-2);
+}
+
+.me p {
+    text-align: right;
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-2);
+}
+
+.copyright{
+    display: inline;
+}
+.copyright p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--color-2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Café y animación */
+.cafe-container {
+    
+    display: inline-block;
+}
+
+.coffee-cup {
+    font-size: 1.5em;
+    position: relative;
+    z-index: 1;
+}
+
+
+.amor-container {
+    position: relative;
+    display: inline-block;
+    color: red;
+    font-size: 1.4em;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BOTON PARA SUBIR */
+.boton-subir {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-2);
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.6s ease;
+}
+
+.boton-subir:hover {
+    background-color: var(--color-3);
+    width: 39px;
+    height: 39px;
+}
+
+.proyecto-img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+
+  body.modal-open {
+    overflow: hidden;
+}
+
+  
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8); /* Fondo transparente */
+    animation: fadeIn 0.5s;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #fefefe;
+    color: #000000;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    animation: slideIn 0.5s;
+  
+}
+
+#project-info{
+    margin-top: 200px;
+    font-weight: 500;
+    font-family: var(--font-Family-2);
+}
+
+
+.imagen-project{
+    position: absolute;
+    width: 100%;
+    height: 220px;
+    top: 0;
+    border-radius: 7px 7px 30px 30px;
+    background-size:cover;
+    background-position:center; 
+    overflow: hidden;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: var(--color-1);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--color-3);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideIn {
+    from {top: -300px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+
+/* Make images look a bit transparent when modal is active */
+.blur-background {
+    filter: blur(5px);
+    transition: filter 0.5s;
+}
+
+
+  
