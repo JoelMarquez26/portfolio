@@ -303,19 +303,22 @@ document.addEventListener("DOMContentLoaded", function() {
             title: "Bitiby 'Table4All'",
             description: "Este proyecto nace con la visión de crear una comunidad más justa y sostenible, a través de la innovación tecnológica y la empatía social . Se desarrolló una plataforma web que sirva como herramienta para la gestión y coordinación de un grupo de riders que participan de forma voluntaria para entregar comida a los mas necesitados. ",
             imageUrl: "assets/img/logo-bitiby.png",
-            languages: "HTML, CSS, JavaScript, PHP"
+            languages: "HTML, CSS, JavaScript, PHP",
+            link: ""
         },
         "info-project2": {
-            title: "Proyecto 2",
+            title: "Laia",
             description: "Este es el Proyecto 2, desarrollado con HTML, CSS y JavaScript.",
             imageUrl: "assets/img/logoLaia.png",
-            languages: "HTML, CSS, JavaScript, PHP"
+            languages: "HTML, CSS, JavaScript, PHP",
+            link: "http://cientifiksenjoc.byethost4.com/?i=1"
         },
         "info-project3": {
             title: "Proyecto 3",
             description: "Este es el Proyecto 3, desarrollado con HTML, CSS y JavaScript.",
             imageUrl: "assets/img/imagen_prueba.png",
-            languages: "HTML, CSS, JavaScript, PHP"
+            languages: "HTML, CSS, JavaScript, PHP",
+            link: "https://example.com/proyecto3"
         }
     };
 
@@ -329,6 +332,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 <h3>${info.title}</h3>
                 <p>${info.description}</p>
                 <p>Lenguajes: ${info.languages}</p>
+                <p><a href="${info.link}" class="project-link" target="_blank"><i class="fa-solid fa-circle-plus"></i></a></p>
+                
             `;
             projectImage.style.backgroundImage = `url(${info.imageUrl})`;
 
@@ -447,8 +452,68 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    const titlePro = document.querySelector('.title-proyectos');
+    const intro = document.querySelector('.intro-proyectos');
+    const titleSkills = document.querySelector('.title-skills');
+    const mi = document.querySelector('.title-sobre-mi');
+
+    const options = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, options);
+
+    observer.observe(titlePro);
+    observer.observe(intro);
+    observer.observe(titleSkills);
+    observer.observe(mi);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    const projectImgs = document.querySelectorAll('.proyecto-img');
+
+    const options = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible');
+            }
+        });
+    }, options);
+
+    projectImgs.forEach((img, index) => {
+        img.classList.add(index % 2 === 0 ? 'left' : 'right');
+        observer.observe(img);
+    });
+});
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    var textSobreMi = document.querySelector(".text-sobre-mi");
+
+    window.addEventListener("scroll", function() {
+        var scrollPosition = window.scrollY + window.innerHeight;
+        var elementPosition = textSobreMi.getBoundingClientRect().top + window.scrollY;
+
+        if (scrollPosition > elementPosition) {
+            textSobreMi.classList.add("scroll-animation");
+        }
+    });
+});
 
 
 

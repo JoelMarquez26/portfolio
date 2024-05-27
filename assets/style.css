@@ -48,7 +48,7 @@ body {
 
 .menu-vertical ul {
     list-style-type: none;
-    margin-top: 120px;
+    margin-top: 8rem;
 }
 
 .menu-vertical  ul li {
@@ -272,8 +272,12 @@ background: var(--color-2);
 #name{
     color: var(--color-3);
     font-size: 16px;
+    right: 1.6rem;
 }
 
+#name img{
+ width: 5rem;
+}
 #name:hover{
     text-decoration:line-through;
 }
@@ -290,7 +294,13 @@ background: var(--color-2);
    right: 70%;
    color: var(--color-3);
    font-weight: 900;
-  
+   transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.title-sobre-mi.visible{
+    opacity: 1;
+    transform: translateY(0);
 }
 .title-sobre-mi h1{
     font-size: 32px;
@@ -302,8 +312,24 @@ background: var(--color-2);
     width: 64%;
     text-align: center;
     margin-bottom: 50px;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.text-sobre-mi.scroll-animation {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
 
 
 .llamada{
@@ -318,10 +344,15 @@ background: var(--color-2);
 .title-skills{
     position: absolute;
     bottom: 160px;
-    right: 68%;
+    right: 50%;
     color: var(--color-3);
     font-weight: bold;  
-    
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;   
+}
+.title-skills.visible{
+    opacity: 1;
+    transform: translateY(0);
 }
 .title-skills h1{
     font-size: 32px;
@@ -330,9 +361,9 @@ background: var(--color-2);
 .logitos{
     position: absolute;
     display: flex;
-    bottom: 40px;
-    font-size: 70px;
-    gap: 180px;  
+    bottom: 2rem;
+    font-size: 4.5rem;
+    gap: 12rem;  
 
 }
 
@@ -396,7 +427,7 @@ background: var(--color-2);
 
 /* SECTION proyectos */
 .proyectos{
-    height: 400vh;
+    height: 480vh;
     overflow: hidden;
     background-image: linear-gradient(to top, #ffffff 0%, #000000 50%,  #000000 100%);
     
@@ -433,6 +464,8 @@ background: var(--color-2);
    right: 68%;
    color: var(--color-2);
    font-weight: 900;
+   transform: translateY(50px);
+   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .title-proyectos h1{
@@ -443,19 +476,29 @@ background: var(--color-2);
  .intro-proyectos {
     position: absolute;
     top: 200px;
-    right: 50%;
-    transform: translateX(50%);
+    transform: translateX(-50%); /* Ajustar la transformación para centrar horizontalmente */
     width: 64%;
     font-size: 24px;
     line-height: 1.8;
     color: var(--color-2); 
-    text-align: center;
+    text-align: center; /* Alinear el texto a la izquierda */
     margin-bottom: 20px;
     font-family: var(--font-Family-1);
-    
-    /* animation: parpadeo2 2s infinite alternate; Aplica la animación de parpadeo */
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Añadir la clase 'visible' cuando sea necesario */
+.intro-proyectos.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.title-proyectos.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
 .intro-proyectos span{
     font-style: italic;
     font-family: var(--font-Family-1);
@@ -472,6 +515,8 @@ background: var(--color-2);
     margin-top: 45%;
 
 }
+
+
 
 /* .proyec{
     position: absolute;
@@ -492,17 +537,18 @@ background: var(--color-2);
     /* background-image: linear-gradient(to right, #000000 0%, #232323 40%, #232323 50%, #232323 60%, #000000 100%); */
     background-color: var(--color-1);
     overflow: visible; /* Permite que las imágenes sobresalgan del contenedor */
-    cursor: pointer;
     transform: rotate(2deg);
-    transition: transform 0.5s ease; /* Añade una transición suave para la transformación */
+    transition: transform 0.8s ease; /* Añade una transición suave para la transformación */
 }
 
 .proyec img {
     position: absolute;
-    width: 460px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    width: 450px; /* Ajusta el tamaño de las imágenes según sea necesario */
     height: auto;
     filter: grayscale(100%);
     transition: filter 0.5s ease, transform 0.5s ease;
+    transform: translateX(-50px);
+    cursor: pointer;
     
 }
 
@@ -511,6 +557,36 @@ background: var(--color-2);
     transform: scale(1.05);
     
 }
+.proyec2 img {
+    position: absolute;
+    width: 450px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+    cursor: pointer;
+}
+
+.proyec2 img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    
+}
+
+.proyec3 img {
+    position: absolute;
+    width: 400px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    height: auto;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease, transform 0.5s ease;
+    
+}
+
+.proyec3 img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    
+}
+
 
 .proyectos::before {
     content: "PROYECTOS";
@@ -527,12 +603,12 @@ background: var(--color-2);
 
 .proyec img:nth-child(1) {
     top: 10px;
-    left: -180px;
+    left: -140px;
 }
 
 .proyec img:nth-child(2) {
     top: 50px;
-    left:300px;
+    left:330px;
   
 }
 
@@ -568,37 +644,32 @@ background: var(--color-2);
     height: 600px;
     left: 40%;
     top: 900px;
-    cursor: pointer;
     /* background-image: linear-gradient(to right, #000000 0%, #232323 40%, #232323 50%, #232323 60%, #000000 100%); */
     background-color: var(--color-1);
     overflow: visible; /* Permite que las imágenes sobresalgan del contenedor */
     transform: rotate(2deg);
-    /* transition: transform 5.5s ease; Añade una transición suave para la transformación */
+    transition: transform 0.8s ease; /* Añade una transición suave para la transformación */
 }
 
-.proyec2 img {
-    position: absolute;
-    width: 480px; /* Ajusta el tamaño de las imágenes según sea necesario */
-    height: auto;
-    
-}
+
+
 
 .proyec2 img:nth-child(1) {
     top: 10px;
-    left: -150px;
+    left: -170px;
 }
 
 .proyec2 img:nth-child(2) {
     top: 50px;
-    left:280px;
+    left:300px;
   
 }
 
 
 .proyec2 img:nth-child(3) {
     top: 330px;
-    left: -10px;
-    width: 620px; /* Ajusta el tamaño de las imágenes según sea necesario */
+    left: 10px;
+    width: 580px; /* Ajusta el tamaño de las imágenes según sea necesario */
 }
 
 
@@ -620,19 +691,18 @@ background: var(--color-2);
     height: 600px;
     right: 20%;
     top: 1800px;
-    cursor: pointer;
     /* background-image: linear-gradient(to right, #000000 0%, #232323 40%, #232323 50%, #232323 60%, #000000 100%); */
     background-color: var(--color-1);
     overflow: visible; /* Permite que las imágenes sobresalgan del contenedor */
     transform: rotate(2deg);
-    transition: transform 0.5s ease; /* Añade una transición suave para la transformación */
+    transition: transform 0.8s ease; /* Añade una transición suave para la transformación */
 }
 
 .proyec3 img {
     position: absolute;
     width: 480px; /* Ajusta el tamaño de las imágenes según sea necesario */
     height: auto;
-    
+    cursor: pointer;
 }
 
 .proyec3 img:nth-child(1) {
@@ -660,6 +730,26 @@ background: var(--color-2);
 .proyec3:hover {
     transform: rotate(0deg) scale(1.1); /* Aumenta el tamaño y coloca el div derecho al pasar el ratón por encima */
     background-color: var(--color-2);
+}
+
+#project-info{
+    color: var(--color-4);
+}
+#project-info h3{
+    color: var(--color-1);
+}
+.project-link {
+    
+
+    font-size: 2rem;
+    color: var(--color-4);
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: var(--color-3);
 }
 
 
@@ -743,7 +833,7 @@ background: var(--color-2);
 footer{
     height: 20vh;
     background-color: var(--color-1);
-    padding: 55px 0;
+    padding: 3em 0;
     text-align: center;
 }
 .container-fluid {
@@ -765,11 +855,16 @@ footer{
     flex: 2;
 }
 
-.redes i {
+.redes a {
     cursor: pointer;
     margin: 0 20px;
     font-size: 34px;
     color: var(--color-2);
+}
+
+.redes i {
+    cursor: pointer;
+
 }
 
 .me p {
@@ -954,5 +1049,21 @@ footer{
     transition: filter 0.5s;
 }
 
+/* animacion imagenes scroll*/
+.proyecto-img {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
 
-  
+.proyecto-img.left {
+    transform: translateX(-50px);
+}
+
+.proyecto-img.right {
+    transform: translateX(50px);
+}
+
+.proyecto-img.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
