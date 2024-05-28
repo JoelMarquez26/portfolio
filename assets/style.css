@@ -34,7 +34,7 @@ body {
     top: 0%;
     right: 0;
     height: 100%;
-    padding: 0px;
+    padding: 0%;
 }
 .fixed {
     position: absolute;
@@ -45,16 +45,17 @@ body {
     display: none; /* Oculta el menú en la sección principal */
 }
 
-
 .menu-vertical ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
     list-style-type: none;
     margin-top: 8rem;
 }
 
-.menu-vertical  ul li {
-    margin-bottom: 60px;
-    margin-right: 50px;
-    
+.menu-vertical ul li {
+    margin-bottom: 5vw;
+    margin-right: 3rem;
 }
 
 .menu-vertical ul li a {
@@ -62,8 +63,9 @@ body {
     color: var(--color-4);
     writing-mode: vertical-rl; /* Esto hace que las palabras estén dispuestas verticalmente */
     text-orientation: mixed; /* Para mantener el texto orientado de manera legible */
-    font-size: 16px;
+    font-size: 1vw;
     font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .boton-menu {
@@ -106,7 +108,12 @@ body {
     }
 }
 
-
+.logo-img{
+    display: flex;
+justify-content: center;
+align-items: center;
+    margin: 0% 0% 0% 4%;
+}
 #texto-mostrado {
     display: flex;
     justify-content: flex-start; /* Alinea el contenido al inicio (izquierda) */
@@ -114,8 +121,8 @@ body {
     overflow: none;
     white-space: pre;
     font-family: monospace;
-    font-size: 22px;
-    padding: 50px;
+    font-size: 1.5vw;
+    padding: 5%;
     border: none;
     background-color: transparent;
     max-width: 75%; /* Define un ancho máximo para el contenedor */
@@ -160,7 +167,7 @@ span .nombre {
 
 .scroll-down-arrow {
     position: absolute;
-    bottom: 10px; /* Ajusta la posición vertical según tu diseño */
+    bottom: 1%; /* Ajusta la posición vertical según tu diseño */
     left: 50%; /* Centra horizontalmente */
     transform: translateX(-50%);
 }
@@ -187,7 +194,7 @@ span .nombre {
 
 .welcome-text {
     position: absolute;
-    bottom: 80px; /* Ajusta la posición vertical según tu diseño */
+    bottom: 12%; /* Ajusta la posición vertical según tu diseño */
     left: 50%; /* Centra horizontalmente */
     transform: translateX(-50%);
     text-align: center;
@@ -219,12 +226,12 @@ span .nombre {
 
 .menu-izquierda ul {
     list-style-type: none;
-    margin-top: 40px;
+    margin-top: 3rem;
 }
 
 .menu-izquierda ul li {
-    margin-bottom: 30px;
-    margin-left: 30px;
+    margin-bottom: 2.5rem;
+    margin-left: 1.5rem;
 }
 
 .menu-izquierda ul li a {
@@ -244,7 +251,14 @@ span .nombre {
     padding: 5px;
     position: relative;
     border-radius: 10px;
-   
+}
+
+.name{
+    cursor: pointer;
+    border: none;
+    padding: 0.5rem;
+    position: relative;
+    border-radius: 10px;
 }
 .sobre-mi-skills .boton-menu2{
 background: var(--color-2);
@@ -270,17 +284,23 @@ background: var(--color-2);
 }
 
 #name{
-    color: var(--color-3);
-    font-size: 16px;
+    color: var(--color-1);
     right: 1.6rem;
 }
 
 #name img{
  width: 5rem;
 }
-#name:hover{
-    text-decoration:line-through;
+
+#logo-img {
+    transition: opacity 0.3s ease;
 }
+
+#logo-img.hover {
+    opacity: 0;
+}
+
+
 
 .sobre-mi{
     display: flex;
@@ -451,6 +471,7 @@ background: var(--color-2);
     color: var(--color-3);
 }
 
+
 .container-proyectos{
     position: relative;
     display: flex;
@@ -475,10 +496,10 @@ background: var(--color-2);
 
  .intro-proyectos {
     position: absolute;
-    top: 200px;
+    top: 15%;
     transform: translateX(-50%); /* Ajustar la transformación para centrar horizontalmente */
     width: 64%;
-    font-size: 24px;
+    font-size: 1.5vw;
     line-height: 1.8;
     color: var(--color-2); 
     text-align: center; /* Alinear el texto a la izquierda */
@@ -739,8 +760,6 @@ background: var(--color-2);
     color: var(--color-1);
 }
 .project-link {
-    
-
     font-size: 2rem;
     color: var(--color-4);
     text-decoration: underline;
@@ -750,6 +769,19 @@ background: var(--color-2);
 
 .project-link:hover {
     color: var(--color-3);
+}
+
+
+.background-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13vw; /* Ajusta el tamaño según sea necesario */
+    color: rgb(0, 0, 0); /* Empieza con un color muy claro */
+    transition: color 0.3s ease; /* Suave transición del color */
+    z-index: -1; /* Asegura que esté detrás del contenido */
+    pointer-events: none; /* Hace que no sea interactivo */
 }
 
 
@@ -1066,4 +1098,32 @@ footer{
 .proyecto-img.visible {
     opacity: 1;
     transform: translateX(0);
+}
+
+
+/* Media Queries para pantallas más grandes */
+@media (min-width: 1200px) {
+    .menu-vertical ul li {
+        margin-bottom: 3vw;
+    }
+
+
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .menu-vertical ul li {
+        margin-bottom: 6vw;
+    }
+
+
+}
+
+/* Media Queries para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .menu-vertical ul li {
+        margin-bottom: 8vw;
+    }
+
+
 }

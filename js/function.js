@@ -304,11 +304,12 @@ document.addEventListener("DOMContentLoaded", function() {
             description: "Este proyecto nace con la visión de crear una comunidad más justa y sostenible, a través de la innovación tecnológica y la empatía social . Se desarrolló una plataforma web que sirva como herramienta para la gestión y coordinación de un grupo de riders que participan de forma voluntaria para entregar comida a los mas necesitados. ",
             imageUrl: "assets/img/logo-bitiby.png",
             languages: "HTML, CSS, JavaScript, PHP",
+            herramientas: "Laravel, VUE, Figma",
             link: ""
         },
         "info-project2": {
             title: "Laia",
-            description: "Este es el Proyecto 2, desarrollado con HTML, CSS y JavaScript.",
+            description: "Laia viaja por 3 paises, superando pruebas e iluminando lugares❤️",
             imageUrl: "assets/img/logoLaia.png",
             languages: "HTML, CSS, JavaScript, PHP",
             link: "http://cientifiksenjoc.byethost4.com/?i=1"
@@ -332,6 +333,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <h3>${info.title}</h3>
                 <p>${info.description}</p>
                 <p>Lenguajes: ${info.languages}</p>
+                <p>Herramientas: ${info.herramientas}</p>
                 <p><a href="${info.link}" class="project-link" target="_blank"><i class="fa-solid fa-circle-plus"></i></a></p>
                 
             `;
@@ -514,6 +516,44 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// CAMBIAR LA IMAGEN DE MINI LOGO
+document.addEventListener("DOMContentLoaded", function() {
+    var logoImg = document.getElementById("logo-img");
+
+    // Imagenes para los diferentes estados
+    var normalSrc = "assets/svg/LOGO MINI.svg";
+    var hoverSrc = "assets/svg/LOGO MINI-AZUL.svg";
+
+    // Cambia la imagen al pasar el ratón por encima
+    logoImg.addEventListener("mouseover", function() {
+        logoImg.classList.add("hover");
+        setTimeout(function() {
+            logoImg.src = hoverSrc;
+            logoImg.classList.remove("hover");
+        }, 300); // 300ms matches the CSS transition duration
+    });
+
+    // Cambia la imagen al quitar el ratón de encima
+    logoImg.addEventListener("mouseout", function() {
+        logoImg.classList.add("hover");
+        setTimeout(function() {
+            logoImg.src = normalSrc;
+            logoImg.classList.remove("hover");
+        }, 300); // 300ms matches the CSS transition duration
+    });
+});
+
+document.addEventListener("scroll", function() {
+    var scrollTop = window.scrollY;
+    var section = document.querySelector(".proyectos");
+    var backgroundText = document.querySelector(".background-text");
+    var sectionHeight = section.offsetHeight;
+    var opacity = Math.min(scrollTop / sectionHeight, 1); // Asegúrate de que la opacidad no supere 1
+    backgroundText.style.color = `rgba(0, 0, 0, ${0.1 + (opacity * 1.9)})`; // Incrementa la opacidad del 0.1 al 1
+});
+
+
 
 
 
