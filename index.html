@@ -13,7 +13,9 @@
      <!-- ANIMATE CCS -->
      <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
      <link rel="stylesheet" href="assets/style.css">
-    <title>PORTFOLIO</title>
+
+     <link rel="icon" type="image/x-icon" href="/assets/svg/LOGO MINI.svg">
+    <title>JOEL MARQUEZ</title>
 </head>
 <body>
   <section id="home" class="home">
@@ -66,7 +68,7 @@
       <div class="title-skills">
         <h1>Lenguajes y Herramientas</h1> 
       </div> 
-        <div class="logitos">
+        <div class="logitos" >
           <i class="fa-brands fa-html5" id="logo-html"></i>
           <i class="fa-brands fa-css3-alt"  id="logo-css"></i>
           <i class="fa-brands fa-js"  id="logo-js"></i>
@@ -124,8 +126,39 @@
           
       </div>
   </div>
+
+  <div id="interactive-video-container" style="display: none;">
+    <video id="interactive-video" width="680" height="360" controls>
+        <source src="assets/img/INTERACTIVO.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="question-container" style="display: none;">
+        <p id="question"></p>
+        <button class="answer-btn" data-answer="yes">Sí</button>
+        <button class="answer-btn" data-answer="no">No</button>
+    </div>
+    <div id="favorite-project-container" style="display: none;">
+        
+        <div class="project-selection">
+            <img src="assets/img/logo-bitiby.png" class="project-img" data-project="proyecto1">
+            <span class="position" id="pos-proyecto1"></span>
+        </div>
+        <div class="project-selection">
+            <img src="assets/img/logoLaia.png" class="project-img" data-project="proyecto2">
+            <span class="position" id="pos-proyecto2"></span>
+        </div>
+        <div class="project-selection">
+            <img src="assets/img/LOGO AHORCADO.png" class="project-img" data-project="proyecto3">
+            <span class="position" id="pos-proyecto3"></span>
+        </div>
+    </div>
+</div>
     
   </div>
+
+
+
+
   </section>
 
     <button id="btnSubir" class="boton-subir">
@@ -162,11 +195,9 @@
         </div>
 
         <div class="redes">
-          <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-          <a href="http://" target="_blank" rel="noopener noreferrer"> <i class="fa-brands fa-linkedin"></i></a>
-          <a href="http://" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></i></a>
-         
-         
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-linkedin"></i>
+          <i class="fa-brands fa-github"></i></i>  
         </div>
 
         <div class="me">

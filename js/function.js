@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var projectData = {
         "info-project1": {
             title: "Bitiby 'Table4All'",
-            description: "Este proyecto nace con la visión de crear una comunidad más justa y sostenible, a través de la innovación tecnológica y la empatía social . Se desarrolló una plataforma web que sirva como herramienta para la gestión y coordinación de un grupo de riders que participan de forma voluntaria para entregar comida a los mas necesitados. ",
+            description: "Proyecto en el cual se desarrolló una plataforma web que sirva como herramienta para la gestión y coordinación de un grupo de riders que participan de forma voluntaria para entregar comida a los mas necesitados. ",
             imageUrl: "assets/img/logo-bitiby.png",
             languages: "HTML, CSS, JavaScript, PHP",
             herramientas: "Laravel, VUE, Figma",
@@ -309,16 +309,18 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         "info-project2": {
             title: "Laia",
-            description: "Laia viaja por 3 paises, superando pruebas e iluminando lugares❤️",
+            description: "Laia viaja por 3 paises, superando pruebas e iluminando lugares❤️. Proyecto de juegos para niños usando HTML  y JavaScript",
             imageUrl: "assets/img/logoLaia.png",
-            languages: "HTML, CSS, JavaScript, PHP",
+            languages: "HTML, CSS, JavaScript, PHP, SQL",
+            herramientas: "Figma, IA, Canva, FontAwesome",
             link: "http://cientifiksenjoc.byethost4.com/?i=1"
         },
         "info-project3": {
-            title: "Proyecto 3",
-            description: "Este es el Proyecto 3, desarrollado con HTML, CSS y JavaScript.",
+            title: "¿Qué animal es?",
+            description: "Juego del ahorcado, ¡adivina el animal!. Reto para practicar arrays en javascript y localStorage.",
             imageUrl: "assets/img/imagen_prueba.png",
             languages: "HTML, CSS, JavaScript, PHP",
+            herramientas: "Figma, Canva, FontAwesome",
             link: " https://joelmarquez26.github.io/ahorcado/"
         }
     };
@@ -551,6 +553,114 @@ document.addEventListener("scroll", function() {
     var sectionHeight = section.offsetHeight;
     var opacity = Math.min(scrollTop / sectionHeight, 1); // Asegúrate de que la opacidad no supere 1
     backgroundText.style.color = `rgba(0, 0, 0, ${0.1 + (opacity * 1.9)})`; // Incrementa la opacidad del 0.1 al 1
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const tooltips = {
+        "logo-html": "HTML5",
+        "logo-css": "CSS3",
+        "logo-js": "JavaScript",
+        "logo-php": "PHP",
+        "logo-figma": "Figma"
+    };
+
+    Object.keys(tooltips).forEach(id => {
+        const icon = document.getElementById(id);
+        const tooltipText = document.createElement("span");
+        tooltipText.className = "tooltip-text";
+        tooltipText.innerText = tooltips[id];
+
+        const container = document.createElement("div");
+        container.className = "tooltip-container";
+        icon.parentNode.insertBefore(container, icon);
+        container.appendChild(icon);
+        container.appendChild(tooltipText);
+    });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var modal = document.getElementById("interactive-video-container");
+    var questionContainer = document.getElementById("question-container");
+    var favoriteProjectContainer = document.getElementById("favorite-project-container");
+    var video = document.getElementById("interactive-video");
+    var top3 = [];
+
+    // Mostrar el modal y reproducir el video cuando llegue al final de la sección de proyectos
+    document.addEventListener("scroll", function() {
+        var sectionProjects = document.querySelector(".proyectos");
+        var sectionProjectsHeight = sectionProjects.offsetHeight;
+        var sectionProjectsTop = sectionProjects.offsetTop;
+        var windowHeight = window.innerHeight;
+        var scrollTop = window.scrollY;
+
+        if (scrollTop + windowHeight >= sectionProjectsTop + sectionProjectsHeight) {
+            if (!sessionStorage.getItem("modalShown")) {
+                modal.style.display = "block";
+                video.play();
+                sessionStorage.setItem("modalShown", "true");
+            }
+        }
+    });
+
+       // Control de tiempo del video para mostrar y ocultar preguntas
+       video.addEventListener("timeupdate", function() {
+        if (video.currentTime >= 8 && video.currentTime < 15) { // Ajusta los tiempos 
+            questionContainer.style.display = "block";
+        } else {
+            questionContainer.style.display = "none";
+        }
+
+        if (video.currentTime >= 18 && video.currentTime < 30) { // Ajusta los tiempos
+            favoriteProjectContainer.style.display = "block";
+        } else {
+            favoriteProjectContainer.style.display = "none";
+        }
+    });
+
+    // Manejo de respuestas
+    document.querySelectorAll(".answer-btn").forEach(function(button) {
+        button.addEventListener("click", function() {
+            var answer = button.getAttribute("data-answer");
+            if (answer === "yes") {
+                video.currentTime = 15; // Avanzar el video 
+                questionContainer.style.display = "none";
+                favoriteProjectContainer.style.display = "block";
+            } else {
+                modal.style.display = "none";
+            }
+        });
+    });
+
+    // Manejo de selección de proyectos favoritos
+    document.querySelectorAll(".project-img").forEach(function(img) {
+        img.addEventListener("click", function() {
+            var project = img.getAttribute("data-project");
+
+            if (top3.includes(project)) {
+                return; 
+            }
+
+            if (top3.length < 3) {
+                top3.push(project);
+                var position = top3.length;
+                var positionElement = document.getElementById(`pos-${project}`);
+                positionElement.textContent = position;
+                positionElement.style.display = "block";
+            }
+
+            if (top3.length === 3) {    
+                setTimeout(function() {
+                    video.currentTime = 30; 
+                }, 500);
+                setTimeout(function() {
+                    modal.style.display = "none";
+                }, 5000); 
+            }
+        });
+    });
 });
 
 
