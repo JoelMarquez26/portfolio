@@ -318,10 +318,10 @@ document.addEventListener("DOMContentLoaded", function() {
         "info-project3": {
             title: "¿Qué animal es?",
             description: "Juego del ahorcado, ¡adivina el animal!. Reto para practicar arrays en javascript y localStorage.",
-            imageUrl: "assets/img/imagen_prueba.png",
+            imageUrl: "assets/img/logo-ahorcado.png",
             languages: "HTML, CSS, JavaScript, PHP",
             herramientas: "Figma, Canva, FontAwesome",
-            link: " https://joelmarquez26.github.io/ahorcado/"
+            link: "https://joelmarquez26.github.io/ahorcado/"
         }
     };
 
@@ -588,6 +588,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var video = document.getElementById("interactive-video");
     var top3 = [];
 
+
     // Mostrar el modal y reproducir el video cuando llegue al final de la sección de proyectos
     document.addEventListener("scroll", function() {
         var sectionProjects = document.querySelector(".proyectos");
@@ -627,7 +628,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (answer === "yes") {
                 video.currentTime = 15; // Avanzar el video 
                 questionContainer.style.display = "none";
-                favoriteProjectContainer.style.display = "block";
+                
             } else {
                 modal.style.display = "none";
             }
@@ -659,10 +660,28 @@ document.addEventListener("DOMContentLoaded", function() {
                     modal.style.display = "none";
                 }, 5000); 
             }
+
+
+
         });
     });
 });
 
+var noBtn = document.getElementById("no-btn");
+var body = document.body;
+    // Mover el botón "no" cuando el mouse está cerca
+    noBtn.addEventListener("mouseover", function() {
+        var buttonWidth = noBtn.offsetWidth;
+        var buttonHeight = noBtn.offsetHeight;
+        var maxX = window.innerWidth - buttonWidth;
+        var maxY = window.innerHeight - buttonHeight;
+        var newX = Math.floor(Math.random() * maxX);
+        var newY = Math.floor(Math.random() * maxY);
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = newX + "px";
+        noBtn.style.top = newY + "px";
+    });
 
 
 
