@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function() {
             description: "Este es el Proyecto 3, desarrollado con HTML, CSS y JavaScript.",
             imageUrl: "assets/img/imagen_prueba.png",
             languages: "HTML, CSS, JavaScript, PHP",
-            link: "https://example.com/proyecto3"
+            link: " https://joelmarquez26.github.io/ahorcado/"
         }
     };
 
