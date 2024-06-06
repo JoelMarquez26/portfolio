@@ -599,7 +599,7 @@ background: var(--color-2);
     height: auto;
     filter: grayscale(100%);
     transition: filter 0.5s ease, transform 0.5s ease;
-    
+    cursor: pointer;
 }
 
 .proyec3 img:hover {
