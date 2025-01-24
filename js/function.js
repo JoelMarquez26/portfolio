@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
  </html>`;
 
 
-    //Función para mostrar el texto con animación de aparición
+    // Función para mostrar el texto con animación de aparición
     function mostrarTexto() {
         textoMostrado.innerHTML = ""; // Limpiamos el contenido
         escribirTexto(textoAEscribir, 0); // Llamamos a la función para escribir el texto
