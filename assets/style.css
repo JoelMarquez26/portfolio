@@ -206,7 +206,7 @@ span .nombre {
 
 
 
-/* SECTION sobre-mi+skills */
+                        /* SECTION sobre-mi+skills */
 .sobre-mi-skills{
     height: 100vh;
     position: relative;
@@ -445,7 +445,7 @@ background: var(--color-2);
 
 
 
-/* SECTION proyectos */
+                    /* SECTION proyectos */
 .proyectos{
     height: 480vh;
     overflow: hidden;
@@ -779,6 +779,8 @@ background: var(--color-2);
     pointer-events: none; /* Hace que no sea interactivo */
 }
 
+
+                /* SECTION contacto */
 
 .contacto{   
     height: 60vh;
